@@ -1,0 +1,84 @@
+id           = "rnguyen03/contextual-workspaces"
+name         = "Contextual Workspaces"
+version      = "0.2.0"
+plugin_api   = 22
+author       = "rnguyen03"
+license      = "MIT"
+icon         = "apps"
+description  = "Named app/workspace contexts: launch a group of apps together and keep them pinned to the same workspaces every time."
+tags         = ["bar", "panel", "service", "hyprland", "productivity", "workspace"]
+dependencies = ["hyprctl", "socat"]
+
+[[setting]]
+key     = "auto-reload-hyprland"
+type    = "bool"
+label_key = "settings.auto-reload-hyprland.label"
+description_key = "settings.auto-reload-hyprland.description"
+default = true
+
+[[setting]]
+key     = "hyprland-rules-file"
+type    = "string"
+label_key = "settings.hyprland-rules-file.label"
+description_key = "settings.hyprland-rules-file.description"
+default = "~/.config/hypr/contextual-workspaces.lua"
+
+[[setting]]
+key     = "enable-wallpaper-switch"
+type    = "bool"
+label_key = "settings.enable-wallpaper-switch.label"
+description_key = "settings.enable-wallpaper-switch.description"
+default = true
+
+[[setting]]
+key     = "enable-theme-switch"
+type    = "bool"
+label_key = "settings.enable-theme-switch.label"
+description_key = "settings.enable-theme-switch.description"
+default = false
+
+[[setting]]
+key     = "auto-switch-on-workspace-change"
+type    = "bool"
+label_key = "settings.auto-switch-on-workspace-change.label"
+description_key = "settings.auto-switch-on-workspace-change.description"
+default = true
+
+[[setting]]
+key     = "enable-pomodoro-integration"
+type    = "bool"
+label_key = "settings.enable-pomodoro-integration.label"
+description_key = "settings.enable-pomodoro-integration.description"
+default = false
+
+[[setting]]
+key     = "pomodoro-focus-context-id"
+type    = "string"
+label_key = "settings.pomodoro-focus-context-id.label"
+description_key = "settings.pomodoro-focus-context-id.description"
+visible_when = { key = "enable-pomodoro-integration", values = ["true"] }
+default = ""
+
+[[setting]]
+key     = "pomodoro-break-context-id"
+type    = "string"
+label_key = "settings.pomodoro-break-context-id.label"
+description_key = "settings.pomodoro-break-context-id.description"
+visible_when = { key = "enable-pomodoro-integration", values = ["true"] }
+default = ""
+
+[[widget]]
+id = "widget"
+entry = "src/widget.luau"
+
+[[panel]]
+id = "panel"
+entry = "src/panel.luau"
+placement = "attached"
+open_near_click = true
+width = 420
+height = 520
+
+[[service]]
+id = "service"
+entry = "src/service.luau"

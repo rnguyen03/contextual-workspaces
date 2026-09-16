@@ -1,0 +1,59 @@
+{
+  "title": "Contextual Workspaces",
+  "title.new-context": "New Context",
+  "title.edit-context": "Edit Context",
+  "empty-state": "No contexts yet. Create one to launch a group of apps together and pin them to workspaces.",
+  "error.name-required": "Context needs a name",
+  "button": {
+    "new": "New",
+    "add-app": "+ Add App",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "field": {
+    "context-name": "Context name",
+    "glyph": "glyph",
+    "wallpaper": "Wallpaper path (optional)",
+    "color-scheme-source": "Scheme source",
+    "color-scheme-name": "Scheme name (optional)",
+    "label": "Label",
+    "launch": "Launch command (e.g. kitty)",
+    "class": "Window class regex (e.g. ^(kitty)$)",
+    "workspace": "WS#",
+    "pin": "Always pin to this workspace"
+  },
+  "settings": {
+    "auto-reload-hyprland": {
+      "label": "Auto-reload Hyprland",
+      "description": "Run 'hyprctl reload' automatically after saving a context so workspace pins take effect immediately."
+    },
+    "hyprland-rules-file": {
+      "label": "Hyprland rules file",
+      "description": "Where the generated window-rule include is written. Add 'require(\"contextual-workspaces\")' once to your hyprland.lua, guarded on this file existing."
+    },
+    "enable-wallpaper-switch": {
+      "label": "Switch wallpaper with context",
+      "description": "Apply a context's wallpaper when it is launched, or when live workspace-navigation switching lands on one of its workspaces."
+    },
+    "enable-theme-switch": {
+      "label": "Switch color scheme with context",
+      "description": "Apply a context's color scheme the same way wallpaper switching does. Off by default since it affects the whole shell's palette."
+    },
+    "auto-switch-on-workspace-change": {
+      "label": "Auto-switch on workspace navigation",
+      "description": "Apply a context's wallpaper/color scheme when you switch to one of its workspaces manually, not just when you launch it through this plugin."
+    },
+    "enable-pomodoro-integration": {
+      "label": "React to Pomodoro Timer",
+      "description": "Switch to a designated context's wallpaper/color scheme when the Pomodoro Timer plugin (thepunkoff/pomodoro) starts a work or break session."
+    },
+    "pomodoro-focus-context-id": {
+      "label": "Focus context ID",
+      "description": "Context to switch to when a Pomodoro work session starts. Find a context's ID by editing it in the panel."
+    },
+    "pomodoro-break-context-id": {
+      "label": "Break context ID",
+      "description": "Context to switch to when a Pomodoro break session starts. Find a context's ID by editing it in the panel."
+    }
+  }
+}
