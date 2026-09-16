@@ -1,0 +1,22 @@
+# This file is auto-generated. Do not edit manually.
+# Do not include it in your commit.
+# Noctalia plugins catalog.
+# Index of every plugin this source ships: the minimum needed to render, search,
+# and compat-check the list. The per-plugin plugin.toml stays authoritative; the
+# host re-reads it on enable. Keep one [[plugin]] row per plugin subdirectory.
+# A [[plugin.release]] row names an older revision for a Noctalia below the tip's
+# plugin_api, so an older release stays installable instead of the plugin vanishing.
+# On every row, updated_at dates the commit that first shipped that row's version.
+
+[[plugin]]
+id = "rnguyen03/contextual-workspaces"
+name = "Contextual Workspaces"
+version = "0.2.0"
+updated_at = 1789526661
+added_at = 1789526661
+author = "rnguyen03"
+license = "MIT"
+icon = "apps"
+description = "Named app/workspace contexts: launch a group of apps together and keep them pinned to the same workspaces every time."
+plugin_api = 22
+tags = ["bar", "panel", "service", "hyprland", "productivity", "workspace"]
