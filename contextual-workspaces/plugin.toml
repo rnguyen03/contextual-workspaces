@@ -1,6 +1,6 @@
 id           = "rnguyen03/contextual-workspaces"
 name         = "Contextual Workspaces"
-version      = "0.2.0"
+version      = "0.3.0"
 plugin_api   = 22
 author       = "rnguyen03"
 license      = "MIT"

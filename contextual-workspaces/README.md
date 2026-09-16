@@ -27,6 +27,46 @@ session.
   context's wallpaper/color scheme when a work or break session starts.
 - **Bar widget**: shows the active context's glyph; click to open the panel.
 
+## How it works
+
+A **context** is just a name (e.g. "Work") plus a list of **members** — apps,
+each with a launch command, a target workspace number, and whether it's
+pinned — and an optional wallpaper/color scheme. Contexts are stored as a
+JSON file in this plugin's own data directory, not in Noctalia settings, and
+are only ever edited through the panel.
+
+There are three independent ways a context actually affects your desktop,
+and it's worth knowing which is which:
+
+1. **Launching a context** (panel's play button, a keybind, or IPC) runs
+   `hyprctl dispatch` once per member to open it directly on its workspace,
+   then applies the context's wallpaper/color scheme. This is a one-shot
+   action — it does nothing to apps you open afterward.
+2. **Pinning** is the "no matter how it's opened" behavior. Every time you
+   save a context, the service regenerates a small Hyprland include
+   (`hyprland-rules-file`) with one `windowrule`-style rule per pinned
+   member, matching its window class to its workspace, and (by default)
+   runs `hyprctl reload` so it takes effect immediately. This is why pinning
+   needs the one-time `hyprland.lua` wiring in step 3 below — without it,
+   Hyprland never loads the generated rules, so pinning silently does
+   nothing.
+3. **Live workspace-navigation awareness** is a background watcher (the
+   service tails Hyprland's IPC event socket via `socat`, if installed): the
+   moment you switch to a workspace that belongs to some context — even with
+   plain `SUPER+N`, not through this plugin at all — it applies that
+   context's wallpaper/color scheme. This is separate from pinning; it
+   reacts to *you* navigating, not to a window appearing.
+
+The bar widget and panel are just the UI on top of this: the widget shows
+the active context's glyph, and the panel is the only place you create,
+edit, launch, or delete contexts (there is no config-file workflow for
+contexts themselves — only the generated pin file is a real file on disk).
+
+The opt-in Pomodoro integration is a fourth, independent trigger: it calls
+the exact same "apply this context's wallpaper/color scheme" code as live
+navigation, just triggered by a signal from the Pomodoro Timer plugin
+instead of a workspace switch.
+
 ## Setup
 1. Enable the plugin and add the bar widget.
 2. Open the panel (click the widget) and create a context: name, glyph,

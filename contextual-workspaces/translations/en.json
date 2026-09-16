@@ -2,16 +2,22 @@
   "title": "Contextual Workspaces",
   "title.new-context": "New Context",
   "title.edit-context": "Edit Context",
+  "title.pick-app": "Choose an App",
   "empty-state": "No contexts yet. Create one to launch a group of apps together and pin them to workspaces.",
+  "empty-state.apps": "No installed apps matched. Try a different search, or type a launch command manually.",
+  "empty-state.apps-scanning": "Scanning installed apps…",
   "error.name-required": "Context needs a name",
   "button": {
     "new": "New",
     "add-app": "+ Add App",
+    "pick-app": "Pick app",
+    "advanced": "Advanced",
     "cancel": "Cancel",
     "save": "Save"
   },
   "field": {
     "context-name": "Context name",
+    "custom-app": "Custom app",
     "glyph": "glyph",
     "wallpaper": "Wallpaper path (optional)",
     "color-scheme-source": "Scheme source",
@@ -20,7 +26,8 @@
     "launch": "Launch command (e.g. kitty)",
     "class": "Window class regex (e.g. ^(kitty)$)",
     "workspace": "WS#",
-    "pin": "Always pin to this workspace"
+    "pin": "Always pin to this workspace",
+    "search-apps": "Search installed apps"
   },
   "settings": {
     "auto-reload-hyprland": {
