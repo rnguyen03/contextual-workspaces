@@ -11,8 +11,8 @@
 [[plugin]]
 id = "rnguyen03/contextual-workspaces"
 name = "Contextual Workspaces"
-version = "0.2.0"
-updated_at = 1789526848
+version = "0.3.0"
+updated_at = 1789528696
 added_at = 1789526848
 author = "rnguyen03"
 license = "MIT"
